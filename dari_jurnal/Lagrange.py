@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 #########################################################
 # Kelompok  : 5                                         #
@@ -14,11 +15,16 @@ n = int(input('Masukan jumlah titik data : '))
 x = np.zeros((n))
 y = np.zeros((n))
 
+xx = []
+yy = []
+
 # membaca titik data
 print('Masukan data x dan y : ')
 for i in range(n):
     x[i] = float(input('x['+str(i)+'] = '))
+    xx.append(x[i])
     y[i] = float(input('y['+str(i)+'] = '))
+    yy.append(y[i])
 
 # membaca interpolasi titik
 xp = float(input('Masukan x yang diinginkan : '))
@@ -36,3 +42,9 @@ for i in range(n):
 
 # display output
 print('Nilai interpolasi untuk %.3f adalah %.3f.' % (xp, yp))
+
+plt.plot(xx, yy, 'bo')
+plt.ylabel('Pendapatan', fontsize=14)
+plt.xlabel('Bulan Ke-', fontsize=14)
+plt.title('PENDAPATAN REKSA DANA DALAM SETAHUN', fontsize=14)
+plt.show()
